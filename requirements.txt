@@ -1,7 +1,0 @@
-streamlit>=1.37
-pandas>=2.2
-numpy>=1.26
-pyvis>=0.3.2
-networkx>=3.2
-python-louvain>=0.16
-boxsdk>=3.9
