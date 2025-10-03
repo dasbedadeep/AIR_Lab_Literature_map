@@ -265,15 +265,14 @@ def build_pyvis_graph(df: pd.DataFrame, G_kw: nx.Graph, kw_partition: Dict[str,i
     - Document nodes connect to their keywords
     """
     net = Network(height="750px", width="100%", bgcolor="#ffffff", font_color="#222222", notebook=False, directed=False, cdn_resources="in_line")
-    net.set_options(\"\"\"
-    const options = {
-      nodes: { shape: "dot", size: 12 },
-      physics: { stabilization: true, solver: "forceAtlas2Based", timestep: 0.35 },
-      interaction: { tooltipDelay: 120, hideEdgesOnDrag: false, multiselect: true, dragNodes: true },
-      edges: { smooth: false, color: { inherit: true } }
-    }
-    \"\"\")
-
+    net.set_options("""
+const options = {
+  nodes: { shape: "dot", size: 12 },
+  physics: { stabilization: true, solver: "forceAtlas2Based", timestep: 0.35 },
+  interaction: { tooltipDelay: 120, hideEdgesOnDrag: false, multiselect: true, dragNodes: true },
+  edges: { smooth: false, color: { inherit: true } }
+}
+""")
     # Color palette per community id
     def color_for(cid: Optional[int]) -> str:
         if cid is None:
